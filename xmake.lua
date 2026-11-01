@@ -1,3 +1,5 @@
+includes("src/ez-string")
+
 add_rules("mode.release", "mode.debug")
 set_languages("gnu17")
 set_xmakever("2.9.9")
@@ -5,7 +7,7 @@ set_xmakever("2.9.9")
 includes("@builtin/xpack")
 
 -- project metadata
-set_project("ez-string")
+set_project("ez-string-cli")
 set_version("0.0.1")
 set_license("MIT")
 
@@ -13,10 +15,6 @@ target("main")
     set_kind("binary")
     set_default(true)
     add_files("src/main.c")
-
-target("string")
-    set_kind("object")
-    add_files("src/ez-string/*.c")
 
 -- for test
 target("test-lib")
@@ -32,7 +30,7 @@ for _, file in ipairs(os.files("src/test/*.c")) do
             set_default(false)
             add_includedirs("src/ez-string")
             add_files("src/test/"..name..".c")
-            add_deps("string", "test-lib")
+            add_deps("ez-string-object", "test-lib")
             add_tests("test", {realtime_output = true})
         end)
     end
