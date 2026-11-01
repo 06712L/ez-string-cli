@@ -1,0 +1,3 @@
+[submodule "lib/ez-string"]
+	path = lib/ez-string
+	url = git@github.com:06712L/ez-string.git
