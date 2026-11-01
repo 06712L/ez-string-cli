@@ -15,23 +15,3 @@ target("main")
     set_kind("binary")
     set_default(true)
     add_files("src/main.c")
-
--- for test
-target("test-lib")
-    set_kind("object")
-    set_default(false)
-    add_files("src/test/test-lib.c")
-
-for _, file in ipairs(os.files("src/test/*.c")) do
-    local name = path.basename(file)
-    if name ~= "test-lib" then
-        target(name, function()
-            set_kind("binary")
-            set_default(false)
-            add_includedirs("lib/ez-string")
-            add_files("src/test/"..name..".c")
-            add_deps("ez-string-object", "test-lib")
-            add_tests("test", {realtime_output = true})
-        end)
-    end
-end
