@@ -1,8 +1,8 @@
 #include <stdint.h>
 #include <stddef.h>
-#include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include "ez-string.h"
 
 static void strmove(char *str_head, ssize_t move_dist)
