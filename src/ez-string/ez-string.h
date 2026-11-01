@@ -6,6 +6,10 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum
 {
     // Replace mode
@@ -20,5 +24,9 @@ char *ez_strcpy(char *target, const char *str);
 char *ez_strstr(const char *haystack, const char *needle);
 char *ez_strchr(const char *s, const char c);
 char *ez_strreplace(char *str, const char *replace_str, const char *target_str, int replace_mode, bool in_place, bool auto_realloc);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
