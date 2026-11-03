@@ -1,5 +1,3 @@
-includes("lib/ez-string")
-
 add_rules("mode.release", "mode.debug")
 set_languages("gnu17")
 set_xmakever("2.9.9")
